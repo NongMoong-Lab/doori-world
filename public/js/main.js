@@ -45,6 +45,8 @@ const getParams = (matchRoute) => {
   return Object.fromEntries(keys.map((key, i) => [key, values[i]])); // result ex: { date: "20240729" }
 };
 
+window.addEventListener("popstate", router); // 뒤로 가기 or 앞으로 가기
+
 document.addEventListener("DOMContentLoaded", () => {
   document.body.addEventListener("click", (e) => {
     if (e.target.matches("[data-link]")) {
