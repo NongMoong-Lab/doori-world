@@ -3,7 +3,7 @@ const navigateTo = (url) => {
   router();
 };
 
-function loadComponent(scriptSrc) {
+const loadComponent = (scriptSrc) => {
   return new Promise((resolve, reject) => {
     const script = document.createElement("script");
     script.src = scriptSrc;
@@ -12,7 +12,7 @@ function loadComponent(scriptSrc) {
       reject(new Error(`Failed to load script: ${scriptSrc}`));
     document.head.appendChild(script);
   });
-}
+};
 
 const routes = [
   { path: "/", view: () => "<h1>Home</h1>" },
