@@ -56,4 +56,25 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   router();
+
+  function loadComponent(scriptSrc, callback) {
+    const script = document.createElement("script");
+    script.src = scriptSrc;
+    script.onload = callback;
+    document.head.appendChild(script);
+  }
+
+  window.addEventListener("hashchange", () => {
+    const hash = location.hash.substring(1);
+    if (hash === "login") {
+      loadComponent("/js/components/loginForm.js", () => {
+        loginForm();
+      });
+    } else {
+      const content = routes[hash] || "<h2>404</h2><p>Page not found</p>";
+      document.getElementById("content").innerHTML = content;
+    }
+  });
+
+  window.dispatchEvent(new HashChangeEvent("hashchange"));
 });
