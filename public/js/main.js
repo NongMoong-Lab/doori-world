@@ -63,9 +63,22 @@ const getParams = (matchRoute) => {
   return Object.fromEntries(keys.map((key, i) => [key, values[i]])); // result ex: { date: "20240729" }
 };
 
+const setDiaryLinkToToday = () => {
+  const diaryLink = document.getElementById("diary-link");
+
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+  const formattedDate = `${year}${month}${day}`;
+
+  diaryLink.href = `/diary/${formattedDate}`;
+};
+
 window.addEventListener("popstate", router); // 뒤로 가기 or 앞으로 가기
 
 document.addEventListener("DOMContentLoaded", () => {
+  setDiaryLinkToToday();
   document.body.addEventListener("click", (e) => {
     if (e.target.matches("[data-link]")) {
       e.preventDefault(); // 새로고침 막기
