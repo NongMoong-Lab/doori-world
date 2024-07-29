@@ -3,9 +3,26 @@ const navigateTo = (url) => {
   router();
 };
 
+function loadComponent(scriptSrc) {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = scriptSrc;
+    script.onload = () => resolve();
+    script.onerror = () =>
+      reject(new Error(`Failed to load script: ${scriptSrc}`));
+    document.head.appendChild(script);
+  });
+}
+
 const routes = [
   { path: "/", view: () => "<h1>Home</h1>" },
-  { path: "/login", view: () => "<h1>Login</h1>" },
+  {
+    path: "/login",
+    view: async () => {
+      await loadComponent("/js/components/loginForm.js");
+      return loginForm();
+    },
+  },
   { path: "/diary/post", view: () => "<h1>Diary Post</h1>" },
   { path: "/diary/:date", view: (params) => `<h1>Diary ${params.date}</h1>` },
   { path: "/photo", view: () => "<h1>Photo</h1>" },
@@ -13,7 +30,7 @@ const routes = [
   { path: "/visitor", view: () => "<h1>Visitor</h1>" },
 ];
 
-const router = () => {
+const router = async () => {
   const potentialMatches = routes.map((route) => {
     return {
       route: route,
@@ -30,7 +47,8 @@ const router = () => {
     return;
   }
 
-  const view = matchRoute.route.view(getParams(matchRoute));
+  const params = getParams(matchRoute);
+  const view = await matchRoute.route.view(params);
   document.querySelector("#app").innerHTML = view;
 };
 
@@ -56,25 +74,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   router();
-
-  function loadComponent(scriptSrc, callback) {
-    const script = document.createElement("script");
-    script.src = scriptSrc;
-    script.onload = callback;
-    document.head.appendChild(script);
-  }
-
-  window.addEventListener("hashchange", () => {
-    const hash = location.hash.substring(1);
-    if (hash === "login") {
-      loadComponent("/js/components/loginForm.js", () => {
-        loginForm();
-      });
-    } else {
-      const content = routes[hash] || "<h2>404</h2><p>Page not found</p>";
-      document.getElementById("content").innerHTML = content;
-    }
-  });
-
-  window.dispatchEvent(new HashChangeEvent("hashchange"));
 });
