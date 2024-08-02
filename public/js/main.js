@@ -5,6 +5,12 @@ const navigateTo = (url) => {
 
 const loadComponent = (scriptSrc) => {
   return new Promise((resolve, reject) => {
+    if (document.querySelector(`script[src="${scriptSrc}"]`)) {
+      // <script> 태그가 이미 존재하는 경우 Promise를 resolve
+      resolve();
+      return;
+    }
+
     const script = document.createElement("script");
     script.src = scriptSrc;
     script.onload = () => resolve();

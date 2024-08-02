@@ -1,8 +1,11 @@
 function loginForm() {
-  const link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.href = "/css/login.css";
-  document.head.appendChild(link);
+  // 이미 스타일시트가 로드되어 있는지 확인
+  if (!document.querySelector('link[href="/css/login.css"]')) {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "/css/login.css";
+    document.head.appendChild(link);
+  }
 
   const content = `
     <form id="loginForm">
