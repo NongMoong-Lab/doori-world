@@ -21,5 +21,6 @@ function loginForm() {
     </form>
   `;
 
-  return content;
+  // return content;
+  document.querySelector("#app").innerHTML = content;
 }

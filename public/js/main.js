@@ -25,14 +25,14 @@ const routes = [
     path: "/",
     view: async () => {
       await loadComponent("/js/components/MainComponent.js");
-      return MainComponent();
+      MainComponent();
     },
   },
   {
     path: "/login",
     view: async () => {
       await loadComponent("/js/components/loginForm.js");
-      return loginForm();
+      loginForm();
     },
   },
   { path: "/diary/post", view: () => "<h1>Diary Post</h1>" },
@@ -61,7 +61,7 @@ const router = async () => {
 
   const params = getParams(matchRoute);
   const view = await matchRoute.route.view(params);
-  document.querySelector("#app").innerHTML = view;
+  // document.querySelector("#app").innerHTML = view;
 };
 
 const pathToRegex = (path) =>
