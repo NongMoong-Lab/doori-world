@@ -15,7 +15,13 @@ const loadComponent = (scriptSrc) => {
 };
 
 const routes = [
-  { path: "/", view: () => "<h1>Home</h1>" },
+  {
+    path: "/",
+    view: async () => {
+      await loadComponent("/js/components/MainComponent.js");
+      return MainComponent();
+    },
+  },
   {
     path: "/login",
     view: async () => {
