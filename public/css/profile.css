@@ -97,9 +97,15 @@
 .history a {
   display: flex;
   align-items: cetner;
+  text-decoration: none;
+}
+
+.history a:hover {
+  color: #5dbad1;
 }
 
 .history a > span {
   line-height: 30px;
   align-items: center;
+  margin-left: 5px;
 }
