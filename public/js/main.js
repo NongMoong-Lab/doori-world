@@ -25,7 +25,7 @@ const routes = [
     path: "/",
     view: async () => {
       await loadComponent("/js/components/MainComponent.js");
-      MainComponent();
+      MainComponent("<h1>홈</h1>");
     },
   },
   {
@@ -35,11 +35,41 @@ const routes = [
       loginForm();
     },
   },
-  { path: "/diary/post", view: () => "<h1>Diary Post</h1>" },
-  { path: "/diary/:date", view: (params) => `<h1>Diary ${params.date}</h1>` },
-  { path: "/photo", view: () => "<h1>Photo</h1>" },
-  { path: "/photo/post", view: () => "<h1>Photo Post</h1>" },
-  { path: "/visitor", view: () => "<h1>Visitor</h1>" },
+  {
+    path: "/diary/post",
+    view: async () => {
+      await loadComponent("/js/components/MainComponent.js");
+      MainComponent("<h1>Diary Post</h1>");
+    },
+  },
+  {
+    path: "/diary/:date",
+    view: async (params) => {
+      await loadComponent("/js/components/MainComponent.js");
+      MainComponent(`<h1>Diary ${params.date}</h1>`);
+    },
+  },
+  {
+    path: "/photo",
+    view: async () => {
+      await loadComponent("/js/components/MainComponent.js");
+      MainComponent("<h1>Photo</h1>");
+    },
+  },
+  {
+    path: "/photo/post",
+    view: async () => {
+      await loadComponent("/js/components/MainComponent.js");
+      MainComponent("<h1>Photo Post</h1>");
+    },
+  },
+  {
+    path: "/visitor",
+    view: async () => {
+      await loadComponent("/js/components/MainComponent.js");
+      MainComponent("<h1>Visitor</h1>");
+    },
+  },
 ];
 
 const router = async () => {
@@ -61,6 +91,7 @@ const router = async () => {
 
   const params = getParams(matchRoute);
   await matchRoute.route.view(params);
+  setDiaryLinkToToday();
   // const view = await matchRoute.route.view(params);
   // document.querySelector("#app").innerHTML = view;
 };
@@ -78,6 +109,7 @@ const getParams = (matchRoute) => {
 
 const setDiaryLinkToToday = () => {
   const diaryLink = document.getElementById("diary-link");
+  console.log("diaryLink:", diaryLink);
 
   const today = new Date();
   const year = today.getFullYear();
@@ -91,13 +123,13 @@ const setDiaryLinkToToday = () => {
 window.addEventListener("popstate", router); // 뒤로 가기 or 앞으로 가기
 
 document.addEventListener("DOMContentLoaded", () => {
-  setDiaryLinkToToday();
+  router();
+
   document.body.addEventListener("click", (e) => {
     if (e.target.matches("[data-link]")) {
       e.preventDefault(); // 새로고침 막기
-      navigateTo(e.target.href);
+      const url = e.target.getAttribute("href"); // href 속성을 가져와서 navigateTo 호출
+      navigateTo(url);
     }
   });
-
-  router();
 });
