@@ -106,7 +106,7 @@ body {
   margin-top: 50px;
 }
 
-.tab-item {
+.tab-item a {
   text-align: center;
   padding: 15px 10px;
   font-size: 15px;
@@ -119,11 +119,13 @@ body {
   border-left: solid 2px black;
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
+  text-decoration: none;
+  display: block;
 }
 
-.active-tab-item {
+.active-tab-item a {
   text-align: center;
-  padding: 15px 20px;
+  padding: 15px 15px;
   font-size: 16px;
   color: black;
   background-color: #ffffff;
@@ -134,4 +136,6 @@ body {
   border-left: none;
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
+  text-decoration: none;
+  display: block;
 }
