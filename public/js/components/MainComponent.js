@@ -3,7 +3,7 @@ async function MainComponent() {
     <div class="wrapper">
       <div class="wrapper-line">
         <div class="profile-wrapper">
-          <div id="visitor-count">Today ${null} | Total ${null}</div>
+          <div id="visitor-count">Today <span id="visitor-today">&nbsp${null}&nbsp</span> | Total ${null}</div>
           <div class="profile"></div>
         </div>
         <div class="main-wrapper"></div>
