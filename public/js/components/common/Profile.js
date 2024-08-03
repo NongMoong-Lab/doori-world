@@ -15,7 +15,7 @@ function Profile() {
   };
 
   const text = "❤️ 사랑";
-  const textIntro = "웰컴...To..두리..월드 S2";
+  const textIntro = "웰컴...<br/>To..두리..<br/>월드 S2";
   const music = "와르르 - 콜드(Colde)";
   const content = `
       <div class="profile-photo">
@@ -38,7 +38,7 @@ function Profile() {
         </div>
       </div>
       <div class="history-wrapper">
-        <span>🔶HISTORY</span>
+        <span>🔶 HISTORY</span>
         <hr />
         <span class="history">
           <a href="https://github.com/NongMoong-Lab/doori-world">
