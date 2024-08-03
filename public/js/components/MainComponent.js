@@ -11,7 +11,7 @@ async function MainComponent(content) {
   const visitorActive =
     currentPath === "/visitor" ? "active-tab-item" : "tab-item";
 
-  const content = `
+  const mainLayout = `
     <div class="wrapper">
       <div class="wrapper-line">
         <div class="profile-wrapper">
@@ -47,7 +47,7 @@ async function MainComponent(content) {
     </div>
   `;
 
-  document.querySelector("#app").innerHTML = content;
+  document.querySelector("#app").innerHTML = mainLayout;
 
   await loadComponent("/js/components/common/Profile.js");
   const profileContent = document.querySelector(".profile");
