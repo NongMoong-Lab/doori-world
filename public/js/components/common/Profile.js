@@ -6,12 +6,20 @@ function Profile() {
     document.head.appendChild(link);
   }
 
+  window.onload = function () {
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(() => {
+      const audio = new Audio("/resource/sound/warr.mp3");
+      audio.play();
+      audio.loop = true;
+    });
+  };
+
   const text = "❤️ 사랑";
   const textIntro = "웰컴...To..두리..월드 S2";
   const music = "와르르 - 콜드(Colde)";
   const content = `
       <div class="profile-photo">
-        <img src="/images/profile.png"/>
+        <img src="/resource/images/profile.png"/>
         <button id="btn-photo-upload">📷 Photo Upload</button>
       </div>
       <div class="intro-wrapper">
@@ -26,7 +34,7 @@ function Profile() {
         </span>
         <div class="music-btn-wrapper">
           <button class="music-btn" id="btn-music-start">▶️</button>
-          <button class="music-btn" id="btn-music-stop">⏸️</button>
+          <button class="music-btn" id="btn-music-stop">II</button>
         </div>
       </div>
       <div class="history-wrapper">

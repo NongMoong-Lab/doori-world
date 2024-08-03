@@ -77,10 +77,15 @@
 .music-btn {
   border: none;
   background-color: white;
+  font-size: 15px;
+}
+
+#btn-music-start {
+  display: none;
 }
 
 #btn-music-stop {
-  display: none;
+  font-weight: bold;
 }
 
 .history-wrapper {
