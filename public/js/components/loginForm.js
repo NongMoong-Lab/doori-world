@@ -10,7 +10,7 @@ function loginForm() {
   const content = `
     <form id="loginForm">
         <div class="header">
-            <img src="/images/Doori-world.png" alt="Doori World Logo">
+            <img src="/resource/images/Doori-world.png" alt="Doori World Logo">
             <h2>Doori World</h2>
         </div>
         <label for="userId">이메일 아이디</label>

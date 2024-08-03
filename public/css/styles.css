@@ -6,7 +6,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url("/images/pattern.png");
+  background-image: url("/resource/images/pattern.png");
   background-color: #a3a3a3;
   background-size: 100px;
 }
