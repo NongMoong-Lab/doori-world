@@ -60,7 +60,8 @@ const router = async () => {
   }
 
   const params = getParams(matchRoute);
-  const view = await matchRoute.route.view(params);
+  await matchRoute.route.view(params);
+  // const view = await matchRoute.route.view(params);
   // document.querySelector("#app").innerHTML = view;
 };
 
