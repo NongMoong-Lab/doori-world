@@ -8,20 +8,26 @@ function Profile() {
 
   const text = "❤️ 사랑";
   const textIntro = "웰컴...To..두리..월드 S2";
-  const music = "Supernatural - NewJeans";
+  const music = "와르르 - 콜드(Colde)";
   const content = `
       <div class="profile-photo">
         <img src="/images/profile.png"/>
         <button id="btn-photo-upload">📷 Photo Upload</button>
       </div>
-      <div>
-        <div>Today is ... ${text}</div>
-        <div>${textIntro}</div>
+      <div class="intro-wrapper">
+        <div id="intro-state"><span>Today is ...</span>&nbsp${text}</div>
+        <div id="intro-text">${textIntro}</div>
       </div>
       <div class="music-display">
-        <p>🎧 <span id="music-animation">${music}<span></p>
-        <p>▶️</p>
-        <p style="display: none;">⏸️</p>
+        <span>🎧
+          <div id="music-container">
+            <div id="music-animation">${music}</div>
+          </div>
+        </span>
+        <div class="music-btn-wrapper">
+          <button class="music-btn" id="btn-music-start">▶️</button>
+          <button class="music-btn" id="btn-music-stop">⏸️</button>
+        </div>
       </div>
       <div class="history-wrapper">
         <span>🔶HISTORY</span>
