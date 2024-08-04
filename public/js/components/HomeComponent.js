@@ -12,16 +12,18 @@ function HomeComponent() {
   <div class="home-container">
     <div class="Diary-section">
       <div class="Diary-title">
-        <p>Diary</p>
+        Diary<hr>
       </div>
       <div class="Diary-show"> 
-        <p>안녕하세요 저는 문건우입니다.</p>
-        <p>민형이의 일기</p>
+        안녕하세요 저는 문건우입니다.</br>
+        <hr>
+        민형이의 일기
+        <hr>
       </div>
     </div>
     <div class="photo-section">
       <div class="photo-title">
-        <p>Photo</p>
+        Photo<hr>
       </div>
       <div class="photo-gallery">
         <img src="/resource/images/couple.png">
@@ -31,20 +33,20 @@ function HomeComponent() {
     </div>
     <div class="miniroom-section">
       <div class="miniroom-title">
-        <p>Mini Room</p>  
+        Mini Room<hr>
       </div>
       <div class="miniroom-image">
-        <img src="/resource/images/miniroom.png" alt="Mini Room">
+        <img src="/resource/images/mini.png" alt="Mini Room">
       </div>
     </div>
     <div class="visitor-section">
       <div class="visitor-title">
-        <p>What Visitors Say</p>
+        What Visitors Say<hr>
       </div> 
       <div class="visitor-comment">
-        <p>뇽하 (뭉)</p>
-        <p>건하 (뇽)</p>
-        <p>안뇨옹 (뭉)</p>
+        뇽하~ (뭉)</br>
+        <hr>
+        건하~ (뇽)<hr>
       </div>
     </div>
   </div>

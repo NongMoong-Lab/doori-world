@@ -7,14 +7,46 @@
 .Diary-section {
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px;
+}
+
+.Diary-title {
+  color: #5dbad1;
+  font-size: 32px;
+}
+
+.Diary-title hr {
+  border-top: 5px solid #ccc;
+  margin: 0;
+}
+
+.Diary-show {
+  margin-top: 10px;
+}
+
+.Diary-show hr {
+  border-top: 1px solid #ccc;
+  margin-bottom: 10px;
 }
 
 .photo-section {
   margin-right: auto;
   margin-left: auto;
+  margin-top: 20px;
+}
+
+.photo-title hr {
+  border-top: 5px solid #ccc;
+  margin: 0;
+}
+
+.photo-title {
+  color: #5dbad1;
+  font-size: 32px;
 }
 
 .photo-gallery {
+  margin-top: 10px;
   display: flex;
   gap: 10px;
 }
@@ -24,7 +56,42 @@
   width: auto;
 }
 
+.miniroom-title {
+  color: #5dbad1;
+  font-size: 32px;
+  width: 670px;
+  margin-left: 60px;
+}
+
+.miniroom-title hr {
+  border-top: 5px solid #ccc;
+  margin: 0;
+}
+
 .miniroom-image img {
-  width: 70%;
-  height: auto;
+  height: 300px;
+  width: auto;
+  margin-left: 60px;
+}
+
+.visitor-title {
+  color: #5dbad1;
+  font-size: 32px;
+  margin-left: 60px;
+}
+
+.visitor-title hr {
+  border-top: 5px solid #ccc;
+  margin: 0;
+  width: 670px;
+}
+
+.visitor-comment {
+  margin-top: 10px;
+  margin-left: 60px;
+}
+
+.visitor-comment hr {
+  border-top: 1px solid #ccc;
+  margin-bottom: 10px;
 }
