@@ -46,7 +46,8 @@ const routes = [
     path: "/diary/:date",
     view: async (params) => {
       await loadComponent("/js/components/MainComponent.js");
-      MainComponent(`<h1>Diary ${params.date}</h1>`);
+      await loadComponent(`/js/components/diary/DiaryDate.js`);
+      MainComponent(DiaryDate(params.date));
     },
   },
   {
