@@ -24,8 +24,9 @@ const routes = [
   {
     path: "/",
     view: async () => {
+      await loadComponent("/js/components/HomeComponent.js");
       await loadComponent("/js/components/MainComponent.js");
-      MainComponent("<h1>홈</h1>");
+      MainComponent(HomeComponent());
     },
   },
   {

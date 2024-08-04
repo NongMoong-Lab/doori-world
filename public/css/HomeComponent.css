@@ -1,0 +1,30 @@
+.home-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Diary-section {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.photo-section {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.photo-gallery {
+  display: flex;
+  gap: 10px;
+}
+
+.photo-gallery img {
+  height: 100px;
+  width: auto;
+}
+
+.miniroom-image img {
+  width: 70%;
+  height: auto;
+}
