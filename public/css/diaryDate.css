@@ -2,14 +2,14 @@
   padding: 15px;
 }
 
-.calender {
+.calendar {
   display: flex;
   border-radius: 10px;
   border: 2px solid #9a9a9a;
   padding: 0 5px 0 5px;
 }
 
-.calender-today {
+.calendar-today {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,7 +19,7 @@
   border-right: 2px solid #9a9a9a;
 }
 
-.calender-date {
+.calendar-container {
   width: 100%;
   font-size: 20px;
   display: flex;

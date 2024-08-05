@@ -1,4 +1,12 @@
-function getDateTemplate(year, month, day) {
+function checkToday(year, month, day) {
+  const today = new Date();
+  if (year == today.getFullYear() && month == parseInt(today.getMonth()) + 1 && day == today.getDate()) {
+    return true;
+  }
+  return false;
+}
+
+function getDateTemplate(year, month) {
   let lastDates = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
   // 윤년 계산
@@ -10,13 +18,14 @@ function getDateTemplate(year, month, day) {
     <table>
       <tr>
         <td colspan="5" id="month">
-          <button id="btn-prev-month">◀️</button>
+          <button id="btn-prev-month" onclick="renderPrevMonth(${year}, ${month})">◀️</button>
           <span>${year}.${month}</span>
-          <button id="btn-next-month">▶️</button>
+          <button id="btn-next-month" onclick="renderNextMonth(${year}, ${month})">▶️</button>
         </td>
   `;
+
   for (let i = 1; i < 14; i++) {
-    if (i == day) {
+    if (checkToday(year, month, i)) {
       dateTemplate += `<td id="today">${i}</td>`;
     } else {
       dateTemplate += `<td>${i}</td>`;
@@ -24,7 +33,7 @@ function getDateTemplate(year, month, day) {
   }
   dateTemplate += "</tr><tr>";
   for (let i = 14; i <= lastDates[parseInt(month) - 1]; i++) {
-    if (i == day) {
+    if (checkToday(year, month, i)) {
       dateTemplate += `<td id="today">${i}</td>`;
     } else {
       dateTemplate += `<td>${i}</td>`;
@@ -33,6 +42,28 @@ function getDateTemplate(year, month, day) {
   dateTemplate += "</tr></table>";
 
   return dateTemplate;
+}
+
+function renderPrevMonth(year, month) {
+  const calendarContainer = document.querySelector(".calendar-container");
+  let newMonth = month - 1;
+  let newYear = year;
+  if (newMonth < 1) {
+    newMonth = 12;
+    newYear -= 1;
+  }
+  calendarContainer.innerHTML = getDateTemplate(newYear, newMonth, 1);
+}
+
+function renderNextMonth(year, month) {
+  const calendarContainer = document.querySelector(".calendar-container");
+  let newMonth = month + 1;
+  let newYear = year;
+  if (newMonth > 12) {
+    newMonth = 1;
+    newYear += 1;
+  }
+  calendarContainer.innerHTML = getDateTemplate(newYear, newMonth, 1);
 }
 
 const daysOfWeek = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
@@ -62,13 +93,13 @@ function DiaryDate(today) {
 
   const component = `
     <div class="diary-wrapper">
-      <div class="calender">
-        <div class="calender-today">
+      <div class="calendar">
+        <div class="calendar-today">
           <span>${month}.${day}</span>
           <span>${daysOfWeek[date.getDay()]}</span>
         </div>
-        <div class="calender-date">
-          ${getDateTemplate(year, month, day)}
+        <div class="calendar-container">
+          ${getDateTemplate(year, month)}
         </div>
       </div>
       <hr />
