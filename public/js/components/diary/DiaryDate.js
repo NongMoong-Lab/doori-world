@@ -113,29 +113,32 @@ function DiaryDate(today) {
       <div class="diary-post">
         <button id="btn-diary-post">🖉글쓰기</button>
       </div>
-      <div class="diary-${diaryId}">
+      <div class="diary-container" id="diary-${diaryId}">
         <div class="diary-info">
           <span>${year}.${month}.${day}</span>
           <span>${diaryWriter}</span>
         </div>
-        <div class="diary-content">${diaryContent}</div>
-        <div class="diary-edit-wrapper">
-          <button id="btn-diary-edit">수정</button>
-          |
-          <button id="btn-diary-remove">삭제</button>
+        <div class="diary-content">
+          <span>${diaryContent}</span>
+          <div class="diary-edit-wrapper">
+            <button id="btn-diary-edit">수정</button>
+            <button id="btn-diary-remove">삭제</button>
+          </div>
         </div>
-        <hr />
-        <div class="diary-comment-wrapper>
+        <div class="diary-comment-container">
           <form class="form-diary-comment">
             <label>댓글</label>
             <input type="text" name="diary-comment" />
             <button type="submit">확인</button>
           </form>
-          <div class="diary-comment-${commentId}">
+          <div class="diary-comment-wrapper" id="comment-${commentId}">
             <div class="diary-comment-info">
-              <p>no.${commentId} ${commentWriter} <span id="diary-comment-writeAt">${commentWriteAt}<span></p>
+              <span>
+                <span>no.${commentId} ${commentWriter}</span>
+                <span id="diary-comment-writeAt">${commentWriteAt}<span>
+              </span>
             </div>
-            <div>
+            <div class="diary-comment-content">
               <img src="/resource/images/profile.png" width=100 height=100 />
               <div id="diary-comment-content">${commentContent}</div>
             </div>
