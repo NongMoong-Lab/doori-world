@@ -30,6 +30,15 @@
   border-bottom: 1px solid black;
   padding: 10px 0;
   font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.diary-author {
+  font-size: 12px;
+  color: #666;
+  margin-left: auto;
 }
 
 .photo-title {
@@ -85,4 +94,13 @@
   border-bottom: 2px solid #ccc;
   padding: 10px 0;
   font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-timestamp {
+  font-size: 12px;
+  color: #888;
+  text-align: right;
 }
