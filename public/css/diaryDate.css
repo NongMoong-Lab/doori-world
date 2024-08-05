@@ -19,6 +19,15 @@
   border-right: 2px solid #9a9a9a;
 }
 
+.calendar-today span:first-child {
+  color: #ff8c00;
+}
+
+.calendar-today span:last-child {
+  color: #9a9a9a;
+  font-size: 20px;
+}
+
 .calendar-container {
   width: 100%;
   font-size: 20px;
@@ -42,5 +51,19 @@ td#month:hover {
 #today {
   border-radius: 5px;
   background-color: #5dbad1;
+  color: white;
+}
+
+#btn-prev-month,
+#btn-next-month {
+  background-color: white;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 7px;
+}
+
+#btn-prev-month:hover,
+#btn-next-month:hover {
+  background-color: black;
   color: white;
 }

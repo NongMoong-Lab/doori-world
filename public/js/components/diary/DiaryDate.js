@@ -26,17 +26,17 @@ function getDateTemplate(year, month) {
 
   for (let i = 1; i < 14; i++) {
     if (checkToday(year, month, i)) {
-      dateTemplate += `<td id="today">${i}</td>`;
+      dateTemplate += `<td id="today" onclick="changeDate(event)">${i}</td>`;
     } else {
-      dateTemplate += `<td>${i}</td>`;
+      dateTemplate += `<td onclick="changeDate(event)">${i}</td>`;
     }
   }
   dateTemplate += "</tr><tr>";
   for (let i = 14; i <= lastDates[parseInt(month) - 1]; i++) {
     if (checkToday(year, month, i)) {
-      dateTemplate += `<td id="today">${i}</td>`;
+      dateTemplate += `<td id="today onclick="changeDate(event)"">${i}</td>`;
     } else {
-      dateTemplate += `<td>${i}</td>`;
+      dateTemplate += `<td onclick="changeDate(event)">${i}</td>`;
     }
   }
   dateTemplate += "</tr></table>";
@@ -46,24 +46,31 @@ function getDateTemplate(year, month) {
 
 function renderPrevMonth(year, month) {
   const calendarContainer = document.querySelector(".calendar-container");
-  let newMonth = month - 1;
+  let newMonth = parseInt(month) - 1;
   let newYear = year;
   if (newMonth < 1) {
     newMonth = 12;
     newYear -= 1;
   }
+  newMonth = newMonth < 10 ? "0" + parseInt(newMonth).toString() : parseInt(newMonth).toString();
   calendarContainer.innerHTML = getDateTemplate(newYear, newMonth, 1);
 }
 
 function renderNextMonth(year, month) {
   const calendarContainer = document.querySelector(".calendar-container");
-  let newMonth = month + 1;
+  let newMonth = parseInt(month) + 1;
   let newYear = year;
   if (newMonth > 12) {
     newMonth = 1;
     newYear += 1;
   }
+  newMonth = newMonth < 10 ? "0" + parseInt(newMonth).toString() : parseInt(newMonth).toString();
   calendarContainer.innerHTML = getDateTemplate(newYear, newMonth, 1);
+}
+
+function changeDate(event) {
+  // todo: 클릭한 날짜 게시물 get 요청
+  console.log("click date: ", event.target.textContent);
 }
 
 const daysOfWeek = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
