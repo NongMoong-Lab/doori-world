@@ -1,0 +1,56 @@
+.diary-form-container {
+  padding: 15px;
+}
+
+.diary-post {
+  display: flex;
+  justify-content: end;
+}
+
+#btn-diary-post {
+  height: 30px;
+  width: 100px;
+  background-color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 3px;
+  text-align: center;
+  border: 0.5px solid black;
+  box-shadow: 1px 1px 1px gray;
+}
+
+#btn-diary-post:active {
+  background-color: #d9d9d9;
+  box-shadow: inset 2px 2px gray;
+}
+
+#editor {
+  border: 1px solid #ccc;
+  padding: 10px;
+  min-height: 400px;
+}
+
+#editor:focus {
+  outline: none;
+}
+
+#toolbar {
+  font-size: 20px;
+  padding: 5px;
+  border: 1px solid #cccccc;
+  border-bottom: none;
+}
+
+#toolbar button {
+  border: none;
+  background-color: transparent;
+}
+
+#toolbar button:hover {
+  color: #d9d9d9;
+}
+
+select,
+option {
+  font-family: "NeoDunggeunmo", Arial, sans-serif;
+}
