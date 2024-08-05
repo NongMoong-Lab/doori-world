@@ -1,4 +1,4 @@
-function getDateTemplate(year, month) {
+function getDateTemplate(year, month, day) {
   let lastDates = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
   // 윤년 계산
@@ -9,18 +9,26 @@ function getDateTemplate(year, month) {
   let dateTemplate = `
     <table>
       <tr>
-        <td colspan="7">
+        <td colspan="5" id="month">
           <button id="btn-prev-month">◀️</button>
           <span>${year}.${month}</span>
           <button id="btn-next-month">▶️</button>
         </td>
   `;
   for (let i = 1; i < 14; i++) {
-    dateTemplate += `<td>${i}</td>`;
+    if (i == day) {
+      dateTemplate += `<td id="today">${i}</td>`;
+    } else {
+      dateTemplate += `<td>${i}</td>`;
+    }
   }
   dateTemplate += "</tr><tr>";
   for (let i = 14; i <= lastDates[parseInt(month) - 1]; i++) {
-    dateTemplate += `<td>${i}</td>`;
+    if (i == day) {
+      dateTemplate += `<td id="today">${i}</td>`;
+    } else {
+      dateTemplate += `<td>${i}</td>`;
+    }
   }
   dateTemplate += "</tr></table>";
 
@@ -53,14 +61,14 @@ function DiaryDate(today) {
   const commentContent = "안녕";
 
   const component = `
-    <div>
+    <div class="diary-wrapper">
       <div class="calender">
         <div class="calender-today">
           <span>${month}.${day}</span>
           <span>${daysOfWeek[date.getDay()]}</span>
         </div>
         <div class="calender-date">
-          ${getDateTemplate(year, month)}
+          ${getDateTemplate(year, month, day)}
         </div>
       </div>
       <hr />

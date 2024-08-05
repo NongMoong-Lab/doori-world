@@ -1,0 +1,46 @@
+.diary-wrapper {
+  padding: 15px;
+}
+
+.calender {
+  display: flex;
+  border-radius: 10px;
+  border: 2px solid #9a9a9a;
+  padding: 0 5px 0 5px;
+}
+
+.calender-today {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  padding: 10px;
+  border-right: 2px solid #9a9a9a;
+}
+
+.calender-date {
+  width: 100%;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+td {
+  text-align: center;
+}
+
+td:hover {
+  color: #ff8c00;
+}
+
+td#month:hover {
+  color: black;
+}
+
+#today {
+  border-radius: 5px;
+  background-color: #5dbad1;
+  color: white;
+}
