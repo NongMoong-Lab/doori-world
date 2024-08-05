@@ -1,97 +1,88 @@
 .home-container {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  height: 100%;
+  margin: 0 auto;
 }
 
-.Diary-section {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
+.top-section {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.Diary-section,
+.photo-section {
+  flex: 1;
+  margin-top: 3%;
 }
 
 .Diary-title {
+  width: 90%;
   color: #5dbad1;
   font-size: 32px;
+  border-bottom: 5px solid #ccc;
 }
 
-.Diary-title hr {
-  border-top: 5px solid #ccc;
-  margin: 0;
-}
-
-.Diary-show {
-  margin-top: 10px;
-}
-
-.Diary-show hr {
-  border-top: 1px solid #ccc;
-  margin-bottom: 10px;
-}
-
-.photo-section {
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 20px;
-}
-
-.photo-title hr {
-  border-top: 5px solid #ccc;
-  margin: 0;
+.diary-item {
+  width: 90%;
+  border-bottom: 1px solid black;
+  padding: 10px 0;
+  font-size: 16px;
 }
 
 .photo-title {
   color: #5dbad1;
   font-size: 32px;
+  border-bottom: 5px solid #ccc;
 }
 
 .photo-gallery {
-  margin-top: 10px;
+  margin: 3%;
   display: flex;
   gap: 10px;
+  justify-content: space-between;
 }
 
 .photo-gallery img {
   height: 100px;
-  width: auto;
+  width: 100px;
+}
+
+.miniroom-section {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .miniroom-title {
   color: #5dbad1;
   font-size: 32px;
-  width: 670px;
-  margin-left: 60px;
-}
-
-.miniroom-title hr {
-  border-top: 5px solid #ccc;
-  margin: 0;
+  width: 100%;
+  border-bottom: 5px solid #ccc;
+  padding: 5px 0;
 }
 
 .miniroom-image img {
-  height: 300px;
-  width: auto;
-  margin-left: 60px;
+  height: auto;
+  max-height: 290px;
+  width: 100%;
+}
+
+.visitor-section {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .visitor-title {
   color: #5dbad1;
   font-size: 32px;
-  margin-left: 60px;
+  border-bottom: 5px solid #ccc;
+  padding: 5px 0;
 }
 
-.visitor-title hr {
-  border-top: 5px solid #ccc;
-  margin: 0;
-  width: 670px;
-}
-
-.visitor-comment {
-  margin-top: 10px;
-  margin-left: 60px;
-}
-
-.visitor-comment hr {
-  border-top: 1px solid #ccc;
-  margin-bottom: 10px;
+.visitor-comment-item {
+  border-bottom: 2px solid #ccc;
+  padding: 10px 0;
+  font-size: 16px;
 }
