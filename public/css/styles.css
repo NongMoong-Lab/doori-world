@@ -19,6 +19,10 @@ body {
   overflow: hidden;
 }
 
+button {
+  font-family: "NeoDunggeunmo", Arial, sans-serif;
+}
+
 #app {
   display: flex;
   justify-content: center;
