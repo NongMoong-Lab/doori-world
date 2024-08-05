@@ -36,8 +36,14 @@
   justify-content: center;
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse; /* 셀 간의 경계 중복 제거 */
+}
 td {
+  width: 5.555%; /* 100%를 18일로 나눈 크기 */
   text-align: center;
+  box-sizing: border-box;
 }
 
 td:hover {
