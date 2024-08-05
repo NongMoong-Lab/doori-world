@@ -14,8 +14,7 @@ const loadComponent = (scriptSrc) => {
     const script = document.createElement("script");
     script.src = scriptSrc;
     script.onload = () => resolve();
-    script.onerror = () =>
-      reject(new Error(`Failed to load script: ${scriptSrc}`));
+    script.onerror = () => reject(new Error(`Failed to load script: ${scriptSrc}`));
     document.head.appendChild(script);
   });
 };
@@ -39,7 +38,8 @@ const routes = [
     path: "/diary/post",
     view: async () => {
       await loadComponent("/js/components/MainComponent.js");
-      MainComponent("<h1>Diary Post</h1>");
+      await loadComponent("/js/components/diary/DiaryForm.js");
+      MainComponent(DiaryForm());
     },
   },
   {
@@ -81,9 +81,7 @@ const router = async () => {
     };
   });
 
-  let matchRoute = potentialMatches.find(
-    (potentialMatch) => potentialMatch.result !== null
-  );
+  let matchRoute = potentialMatches.find((potentialMatch) => potentialMatch.result !== null);
 
   if (!matchRoute) {
     document.querySelector("#app").innerHTML = `<h1>404 not found</h1>`;
@@ -97,14 +95,11 @@ const router = async () => {
   // document.querySelector("#app").innerHTML = view;
 };
 
-const pathToRegex = (path) =>
-  new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
+const pathToRegex = (path) => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
 const getParams = (matchRoute) => {
   const values = matchRoute.result.slice(1); // 실제 url 에서 date 영역 가져오기
-  const keys = Array.from(matchRoute.route.path.matchAll(/:(\w+)/g)).map(
-    (result) => result[1]
-  ); // 동적 라우팅 ":date" 에서 "date" 가져오기
+  const keys = Array.from(matchRoute.route.path.matchAll(/:(\w+)/g)).map((result) => result[1]); // 동적 라우팅 ":date" 에서 "date" 가져오기
   return Object.fromEntries(keys.map((key, i) => [key, values[i]])); // result ex: { date: "20240729" }
 };
 

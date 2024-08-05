@@ -111,7 +111,7 @@ function DiaryDate(today) {
       </div>
       <hr />
       <div class="diary-post">
-        <button id="btn-diary-post">🖉글쓰기</button>
+        <button id="btn-diary-post" onclick="navigateTo('/diary/post')">🖉글쓰기</button>
       </div>
       <div class="diary-container" id="diary-${diaryId}">
         <div class="diary-info">
