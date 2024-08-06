@@ -34,7 +34,7 @@ function Profile() {
         </span>
         <div class="music-btn-wrapper">
           <button class="music-btn" id="btn-music-start">▶️</button>
-          <button class="music-btn" id="btn-music-stop">II</button>
+          <button class="music-btn" id="btn-music-stop">||</button>
         </div>
       </div>
       <div class="history-wrapper">

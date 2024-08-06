@@ -1,7 +1,6 @@
 @font-face {
   font-family: "NeoDunggeunmo";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff")
-    format("woff");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -18,6 +17,10 @@ body {
   background-color: #a3a3a3;
   background-size: 100px;
   overflow: hidden;
+}
+
+button {
+  font-family: "NeoDunggeunmo", Arial, sans-serif;
 }
 
 #app {
@@ -39,7 +42,7 @@ body {
 
 .wrapper-line {
   border: dotted;
-  border-radius: 30px;
+  border-radius: 20px;
   border-color: white;
   margin: 20px;
   height: 750px;
@@ -51,11 +54,11 @@ body {
   background-color: #f0ecec;
   width: 30%;
   height: 100%;
-  border-radius: 30px;
+  border-radius: 20px;
 }
 
 .profile {
-  border-radius: 30px;
+  border-radius: 20px;
   border: 2px solid black;
   background-color: white;
   height: 85%;
@@ -82,22 +85,19 @@ body {
   background-color: #f0ecec;
   width: 70%;
   height: 100%;
-  border-radius: 30px;
+  border-radius: 20px;
 }
 
 .header-box {
   background-color: #f0ecec;
   width: 85%;
-  margin-top: 3%;
-  border-radius: 30px;
   display: flex;
   align-items: center;
-  margin-left: 20px;
-  margin-bottom: 1px;
+  margin: 20px 0 10px 20px;
 }
 
 .intro {
-  font-size: 32px;
+  font-size: 28px;
   color: #5dbad1;
   flex: 1;
   padding-left: 20px;
@@ -114,15 +114,15 @@ body {
 
 .content-area {
   display: flex;
-  height: 100%;
+  height: 90%;
 }
 
 .white-box {
   background-color: #ffffff;
   width: 85%;
-  height: 87.5%;
+  height: 97%;
   margin-left: 20px;
-  border-radius: 30px;
+  border-radius: 20px;
   outline: solid 2px black;
 }
 
