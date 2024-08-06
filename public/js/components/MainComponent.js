@@ -23,9 +23,10 @@ async function MainComponent(content) {
   }
   //  else if (currentPath.startsWith("/photo")) {
   //   loadCSS("/css/Photo.css");
-  // } else if (currentPath === "/visitor") {
-  //   loadCSS("/css/Visitor.css");
   // }
+  else if (currentPath === "/visitor") {
+    loadCSS("/css/visitor.css");
+  }
 
   const homeActive = currentPath === "/" ? "active-tab-item" : "tab-item";
   const diaryActive = currentPath.startsWith("/diary") ? "active-tab-item" : "tab-item";

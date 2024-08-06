@@ -69,7 +69,8 @@ const routes = [
     path: "/visitor",
     view: async () => {
       await loadComponent("/js/components/MainComponent.js");
-      MainComponent("<h1>Visitor</h1>");
+      await loadComponent("/js/components/visitor/VisitorComponent.js");
+      MainComponent(VisitorComponent());
     },
   },
 ];
