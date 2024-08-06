@@ -1,14 +1,4 @@
-function loadCSS() {
-  const link = document.createElement("link");
-  link.href = "/css/HomeComponent.css";
-  link.type = "text/css";
-  link.rel = "stylesheet";
-  document.head.appendChild(link);
-}
-
 function HomeComponent() {
-  loadCSS();
-
   const diaryContents = [
     {
       content: "다이어리 내용1",
@@ -31,13 +21,16 @@ function HomeComponent() {
       timestamp: "2024-08-06 15:30",
     },
   ];
+
   const photos = [
     "/resource/images/couple.png",
     "/resource/images/nongmoong.png",
     "/resource/images/Doori-world.png",
     "/resource/images/miniroom.png",
   ];
+
   const miniroomImage = "/resource/images/mini.png";
+
   const visitorComments = [
     { comment: "방명록 내용 1", timestamp: "2024-08-05 14:00" },
     { comment: "방명록 내용 2", timestamp: "2024-08-06 15:30" },

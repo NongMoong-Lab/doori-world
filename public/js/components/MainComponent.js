@@ -1,5 +1,30 @@
 async function MainComponent(content) {
+  const loadCSS = (href) => {
+    if (document.querySelector(`link[href="${href}"]`)) {
+      // 이미 로드된 CSS 파일이면 아무 작업도 하지 않음
+      return;
+    }
+
+    const link = document.createElement("link");
+    link.href = href;
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    document.head.appendChild(link);
+  };
+
   const currentPath = window.location.pathname;
+
+  // 각 경로에 맞는 CSS 파일을 로드
+  if (currentPath === "/") {
+    loadCSS("/css/HomeComponent.css");
+  }
+  //  else if (currentPath.startsWith("/diary")) {
+  //   loadCSS("/css/Diary.css");
+  // } else if (currentPath.startsWith("/photo")) {
+  //   loadCSS("/css/Photo.css");
+  // } else if (currentPath === "/visitor") {
+  //   loadCSS("/css/Visitor.css");
+  // }
 
   const homeActive = currentPath === "/" ? "active-tab-item" : "tab-item";
   const diaryActive = currentPath.startsWith("/diary")
