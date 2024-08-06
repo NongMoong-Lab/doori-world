@@ -76,13 +76,6 @@ function changeDate(event) {
 const daysOfWeek = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
 function DiaryDate(today) {
-  if (!document.querySelector('link[href="/css/diaryDate.css"]')) {
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = "/css/diaryDate.css";
-    document.head.appendChild(link);
-  }
-
   const date = new Date(today.slice(0, 4), parseInt(today.slice(4, 6)) - 1, today.slice(6, 8));
   const year = date.getFullYear();
   const month = date.getMonth() < 10 ? "0" + (parseInt(date.getMonth()) + 1).toString() : (parseInt(date.getMonth()) + 1).toString();
