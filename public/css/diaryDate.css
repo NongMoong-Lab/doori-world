@@ -1,5 +1,13 @@
 .diary-wrapper {
-  padding: 15px;
+  height: 95%;
+  padding-left: 15px;
+  margin: 15px 15px 15px 0;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.diary-wrapper div:first-child {
+  margin-right: 10px;
 }
 
 .calendar {
@@ -99,7 +107,6 @@ td#month:hover {
 .diary-container {
   border-radius: 10px;
   border: 1px solid gray;
-  height: 100%;
   margin-top: 10px;
 }
 
