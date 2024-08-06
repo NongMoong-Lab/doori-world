@@ -8,6 +8,11 @@ function postDiary() {
   // todo: diary post 요청
 }
 
+function changeFontColor() {
+  var color = document.getElementById("color-select").value;
+  document.execCommand("foreColor", false, color);
+}
+
 function DiaryForm() {
   if (!document.querySelector('link[href="/css/diaryForm.css"]')) {
     const link = document.createElement("link");
@@ -23,29 +28,24 @@ function DiaryForm() {
     </div>
     <hr />
     <div id="toolbar">
-      <select id="font-size">
-        <option value="1">10pt</option>
-        <option value="2">12pt</option>
-        <option value="3">14pt</option>
-        <option value="4">16pt</option>
-        <option value="5">18pt</option>
-        <option value="6">24pt</option>
-        <option value="7">32pt</option>
+      <label for="color-select">글꼴 색상</label>
+      <select id="color-select" onchange="changeFontColor()">
+      <option value="black" style="color: black;">■</option>
+        <option value="red" style="color: red;">■</option>
+        <option value="blue" style="color: blue;">■</option>
+        <option value="green" style="color: green;">■</option>
+        <option value="orange" style="color: orange;">■</option>
+        <option value="purple" style="color: purple;">■</option>
+        <option value="pink" style="color: pink;">■</option>
       </select>
-      <select id="font-family">
-        <option value="Arial">Arial</option>
-        <option value="Courier New">Courier New</option>
-        <option value="Georgia">Georgia</option>
-        <option value="Times New Roman">Times New Roman</option>
-        <option value="Verdana">Verdana</option>
-      </select>
-      <button onclick="document.execCommand('bold', false, '');">Bold</button>
-      <button onclick="document.execCommand('italic', false, '');">Italic</button>
-      <button onclick="document.execCommand('underline', false, '');">Underline</button>
-      <button onclick="document.execCommand('justifyLeft', false, '');">Left</button>
-      <button onclick="document.execCommand('justifyCenter', false, '');">Center</button>
-      <button onclick="document.execCommand('justifyRight', false, '');">Right</button>
-      <button onclick="document.execCommand('insertUnorderedList', false, '');">Bullet List</button>
+      <button onclick="document.execCommand('hiliteColor', false, 'yellow')">형광펜</button>
+      <button onclick="document.execCommand('bold', false, '');">굵게</button>
+      <button onclick="document.execCommand('italic', false, '');">기울이기</button>
+      <button onclick="document.execCommand('underline', false, '');">밑줄</button>
+      <button onclick="document.execCommand('justifyLeft', false, '');">왼쪽 정렬</button>
+      <button onclick="document.execCommand('justifyCenter', false, '');">가운데 정렬</button>
+      <button onclick="document.execCommand('justifyRight', false, '');">오른쪽 정렬</button>
+      <button onclick="document.execCommand('insertUnorderedList', false, '');">토글 리스트</button>
     </div>
     <div id="editor" contenteditable="true"></div>
   </div>

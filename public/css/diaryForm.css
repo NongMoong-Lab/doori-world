@@ -50,7 +50,10 @@
   color: #d9d9d9;
 }
 
-select,
-option {
-  font-family: "NeoDunggeunmo", Arial, sans-serif;
+#toolbar label {
+  font-size: 13px;
+}
+
+#color-select option {
+  font-weight: bold;
 }
