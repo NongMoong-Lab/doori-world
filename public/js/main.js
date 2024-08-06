@@ -52,10 +52,11 @@ const routes = [
     },
   },
   {
-    path: "/photo",
+    path: "/photo/board",
     view: async () => {
       await loadComponent("/js/components/MainComponent.js");
-      MainComponent("<h1>Photo</h1>");
+      await loadComponent("/js/components/photo/photoBoard.js"); 
+      MainComponent(photoBoard()); 
     },
   },
   {

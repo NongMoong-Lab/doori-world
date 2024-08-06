@@ -1,0 +1,45 @@
+.photo-image {
+  width: 30%;
+  height: auto;
+  
+}
+
+.photo-post {
+  display: flex;
+  justify-content: end;
+}
+
+.btn-photo-post {
+  height: 30px;
+  width: 150px;
+  background-color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 3px;
+  text-align: center;
+  border: 0.5px solid black;
+  box-shadow: 1px 1px 1px gray;
+}
+
+
+.photo-edit-wrapper {
+  display: flex;
+  justify-content: end;
+}
+
+#btn-photo-edit,
+#btn-photo-remove {
+  border: none;
+  background-color: transparent;
+  font-size: 18px;
+  color: #9a9a9a;
+}
+
+#btn-photo-edit {
+  border-right: 2px solid #9a9a9a;
+}
+
+#btn-photo-edit:hover,
+#btn-photo-remove:hover {
+  color: black;
+}
