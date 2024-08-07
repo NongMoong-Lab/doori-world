@@ -16,21 +16,21 @@ function renderVisitorSays() {
       content: "안녕",
       author: "행복한 토끼",
       img: "01",
-      timestamp: "2024-08-05 14:00",
+      timestamp: "2024.08.05 14:00",
     },
     {
       id: 2,
       content: "안녕",
       author: "행복한 고양이",
       img: "01",
-      timestamp: "2024-08-06 14:00",
+      timestamp: "2024.08.06 14:00",
     },
     {
       id: 3,
       content: "안녕",
       author: "느긋한 토끼",
       img: "01",
-      timestamp: "2024-08-06 22:10",
+      timestamp: "2024.08.06 22:10",
     },
   ];
 
@@ -41,7 +41,7 @@ function renderVisitorSays() {
       <div class="visitor-info">
         <span>no. ${item.id}</span>
         <span>${item.author}</span>
-        <span>(${item.timestamp})</span>
+        <span class="visitor-writeAt">${item.timestamp}</span>
       </div>
       <div class="visitor-says-content">
         <img src="/resource/images/visitor${item.img}.png" width="100" height="100" />
