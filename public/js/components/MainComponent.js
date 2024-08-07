@@ -1,3 +1,13 @@
+const setDiaryLinkToToday = () => {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+  const formattedDate = `${year}${month}${day}`;
+
+  return `/diary/${formattedDate}`;
+};
+
 async function MainComponent(content) {
   const loadCSS = href => {
     // 모든 CSS 링크를 찾아 제거
@@ -57,7 +67,7 @@ async function MainComponent(content) {
                 <a href="/" data-link>홈</a>
               </div>
               <div class="${diaryActive}">
-                <a href="#" data-link id="diary-link">다이어리</a>
+                <a href="${setDiaryLinkToToday()}" data-link id="diary-link">다이어리</a>
               </div>
               <div class="${postActive}">
                 <a href="/photo/board" data-link>포토</a>
