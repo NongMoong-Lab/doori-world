@@ -6,7 +6,7 @@
   overflow-x: hidden;
 }
 
-.diary-wrapper div:first-child {
+.diary-wrapper > div {
   margin-right: 10px;
 }
 

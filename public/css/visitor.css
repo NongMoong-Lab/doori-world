@@ -1,6 +1,8 @@
 .visitor-container {
   height: 95%;
-  padding: 20px 20px 20px 40px;
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 20px;
 }
 
 .visitor-wrapper {

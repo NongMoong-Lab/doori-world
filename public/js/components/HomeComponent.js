@@ -80,11 +80,11 @@ function HomeComponent() {
             ${diaryHtml}
           </div>
         </div>
-        <div class="photo-section">
-          <div class="photo-title">
+        <div class="home-photo-section">
+          <div class="home-photo-title">
             Photo
           </div>
-          <div class="photo-gallery">
+          <div class="home-photo-gallery">
             ${photosHtml}
           </div>
         </div>

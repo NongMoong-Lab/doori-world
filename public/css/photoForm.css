@@ -24,19 +24,19 @@
   box-shadow: 1px 1px 1px gray;
 }
 
-.form-group {
+.photo-form-group {
   margin-bottom: 20px;
   width: 98%;
 }
 
-.form-group label {
+.photo-form-group label {
   display: block;
   margin-bottom: 5px;
 }
 
-.form-group input[type="text"],
-.form-group input[type="file"],
-.form-group textarea {
+.photo-form-group input[type="text"],
+.photo-form-group input[type="file"],
+.photo-form-group textarea {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
@@ -75,7 +75,7 @@
   justify-content: space-between;
 }
 
-#editor {
+#photo-editor {
   width: 100%; 
   height: 350px;
   border: 1px solid #ccc; 

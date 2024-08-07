@@ -13,7 +13,7 @@
 }
 
 .Diary-section,
-.photo-section {
+.home-photo-section {
   flex: 1;
   margin-top: 3%;
 }
@@ -41,20 +41,20 @@
   margin-left: auto;
 }
 
-.photo-title {
+.home-photo-title {
   color: #5dbad1;
   font-size: 32px;
   border-bottom: 5px solid #ccc;
 }
 
-.photo-gallery {
+.home-photo-gallery {
   margin: 3%;
   display: flex;
   gap: 10px;
   justify-content: space-between;
 }
 
-.photo-gallery img {
+.home-photo-gallery img {
   height: 100px;
   width: 100px;
 }

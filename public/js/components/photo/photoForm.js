@@ -5,10 +5,10 @@ function photoForm() {
           <button class="btn-photo-board" onclick="navigateTo('/photo/board')">사진 보러가기</button>
       </div>
       <form id="photo-upload-form" action="/upload/photo" method="post" enctype="multipart/form-data">
-          <div class="form-group">
+          <div class="photo-form-group">
               <input type="text" id="photo-title" name="title" required placeholder="제목을 입력해주세요">
           </div>
-          <div class="form-group">
+          <div class="photo-form-group">
               <input type="file" id="photo-image" name="image" required>
           </div>
           <div id="toolbar">
@@ -32,7 +32,7 @@ function photoForm() {
               <button onclick="document.execCommand('justifyRight', false, '');">오른쪽 정렬</button>
             </div>
           </div>
-          <div id="editor" contenteditable="true"></div>
+          <div id="photo-editor" contenteditable="true"></div>
           <div class="submit-btn">
             <button type="submit" class="btn-photo-submit">저장</button>
           </div>
