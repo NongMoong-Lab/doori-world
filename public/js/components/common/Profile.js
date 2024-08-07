@@ -55,7 +55,6 @@ function Profile() {
           </a>
         </span>
         </div>
-        
       </div>
     `;
   return content;
