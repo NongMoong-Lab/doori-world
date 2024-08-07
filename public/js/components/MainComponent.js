@@ -17,9 +17,10 @@ async function MainComponent(content) {
   // 각 경로에 맞는 CSS 파일을 로드
   if (currentPath === "/") {
     loadCSS("/css/HomeComponent.css");
+  } else if (currentPath === "/diary/post") {
+    loadCSS("/css/diaryForm.css");
   } else if (currentPath.startsWith("/diary")) {
     loadCSS("/css/diaryDate.css");
-    loadCSS("/css/diaryForm.css");
   }
   //  else if (currentPath.startsWith("/photo")) {
   //   loadCSS("/css/Photo.css");
