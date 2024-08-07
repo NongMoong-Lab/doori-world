@@ -121,16 +121,50 @@ const getParams = matchRoute => {
   return Object.fromEntries(keys.map((key, i) => [key, values[i]])); // result ex: { date: "20240729" }
 };
 
-window.addEventListener("popstate", router); // 뒤로 가기 or 앞으로 가기
+// 현재 경로에 따라 탭 스타일을 업데이트하는 함수
+function updateTabStyles(currentPath) {
+  const tabs = document.querySelectorAll("[data-link]");
+  tabs.forEach(tab => {
+    const parentDiv = tab.parentElement;
+    const href = tab.getAttribute("href");
+
+    if (
+      currentPath === href ||
+      (currentPath.startsWith("/diary") && href.startsWith("/diary")) ||
+      (currentPath.startsWith("/photo") && href.startsWith("/photo"))
+    ) {
+      parentDiv.classList.add("active-tab-item");
+      parentDiv.classList.remove("tab-item");
+    } else {
+      parentDiv.classList.remove("active-tab-item");
+      parentDiv.classList.add("tab-item");
+    }
+  });
+}
+
+window.addEventListener("popstate", () => {
+  router();
+  updateTabStyles(window.location.pathname);
+}); // 뒤로 가기 or 앞으로 가기
 
 document.addEventListener("DOMContentLoaded", () => {
   router();
+  updateTabStyles(window.location.pathname);
 
   document.body.addEventListener("click", e => {
     if (e.target.matches("[data-link]")) {
       e.preventDefault(); // 새로고침 막기
       const url = e.target.getAttribute("href"); // href 속성을 가져와서 navigateTo 호출
       navigateTo(url);
+
+      // 모든 탭의 "active-tab-item" 클래스를 제거
+      document.querySelectorAll(".tab-item, .active-tab-item").forEach(tab => {
+        tab.classList.remove("active-tab-item");
+        tab.classList.add("tab-item");
+      });
+
+      // 클릭된 탭에 "active-tab-item" 클래스 추가
+      e.target.closest("div").classList.add("active-tab-item");
     }
   });
 });

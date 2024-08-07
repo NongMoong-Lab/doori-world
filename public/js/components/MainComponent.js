@@ -9,43 +9,6 @@ const setDiaryLinkToToday = () => {
 };
 
 async function MainComponent() {
-  // const loadCSS = href => {
-  //   // 모든 CSS 링크를 찾아 제거
-  //   document.querySelectorAll("link[type='text/css']").forEach(link => link.remove());
-
-  //   const link = document.createElement("link");
-  //   link.href = href;
-  //   link.type = "text/css";
-  //   link.rel = "stylesheet";
-  //   document.head.appendChild(link);
-  // };
-
-  const currentPath = window.location.pathname;
-
-  // 각 경로에 맞는 CSS 파일을 로드
-  // if (currentPath === "/") {
-  // loadCSS("/css/HomeComponent.css");
-  // } else if (currentPath === "/photo/board") {
-  // loadCSS("/css/photoBoard.css");
-  // } else if (currentPath === "/photo/post") {
-  // loadCSS("/css/photoForm.css");
-  // } else if (currentPath === "/diary/post") {
-  // loadCSS("/css/diaryForm.css");
-  // } else if (currentPath.startsWith("/diary")) {
-  // loadCSS("/css/diaryDate.css");
-  // }
-  //  else if (currentPath.startsWith("/photo")) {
-  //   loadCSS("/css/Photo.css");
-  // }
-  // else if (currentPath === "/visitor") {
-  // loadCSS("/css/visitor.css");
-  // }
-
-  const homeActive = currentPath === "/" ? "active-tab-item" : "tab-item";
-  const diaryActive = currentPath.startsWith("/diary") ? "active-tab-item" : "tab-item";
-  const postActive = currentPath.startsWith("/photo") ? "active-tab-item" : "tab-item";
-  const visitorActive = currentPath === "/visitor" ? "active-tab-item" : "tab-item";
-
   const mainLayout = `
     <div class="wrapper">
       <div class="wrapper-line">
@@ -61,16 +24,16 @@ async function MainComponent() {
           <div class="content-area"> 
             <div class="white-box"></div>
             <div class="tab-container">
-              <div class="${homeActive}" >
+              <div class="active-tab-item" >
                 <a href="/" data-link>홈</a>
               </div>
-              <div class="${diaryActive}">
+              <div class="tab-item">
                 <a href="${setDiaryLinkToToday()}" data-link id="diary-link">다이어리</a>
               </div>
-              <div class="${postActive}">
+              <div class="tab-item">
                 <a href="/photo/board" data-link>포토</a>
               </div>
-              <div class="${visitorActive}">
+              <div class="tab-item">
                 <a href="/visitor"data-link>방명록</a>
               </div>
             </div>
