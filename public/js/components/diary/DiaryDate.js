@@ -76,13 +76,6 @@ function changeDate(event) {
 const daysOfWeek = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
 function DiaryDate(today) {
-  if (!document.querySelector('link[href="/css/diaryDate.css"]')) {
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = "/css/diaryDate.css";
-    document.head.appendChild(link);
-  }
-
   const date = new Date(today.slice(0, 4), parseInt(today.slice(4, 6)) - 1, today.slice(6, 8));
   const year = date.getFullYear();
   const month = date.getMonth() < 10 ? "0" + (parseInt(date.getMonth()) + 1).toString() : (parseInt(date.getMonth()) + 1).toString();
@@ -100,47 +93,61 @@ function DiaryDate(today) {
 
   const component = `
     <div class="diary-wrapper">
-      <div class="calendar">
-        <div class="calendar-today">
-          <span>${month}.${day}</span>
-          <span>${daysOfWeek[date.getDay()]}</span>
-        </div>
-        <div class="calendar-container">
-          ${getDateTemplate(year, month)}
-        </div>
-      </div>
-      <hr />
-      <div class="diary-post">
-        <button id="btn-diary-post" onclick="navigateTo('/diary/post')">🖉글쓰기</button>
-      </div>
-      <div class="diary-container" id="diary-${diaryId}">
-        <div class="diary-info">
-          <span>${year}.${month}.${day}</span>
-          <span>${diaryWriter}</span>
-        </div>
-        <div class="diary-content">
-          <span>${diaryContent}</span>
-          <div class="diary-edit-wrapper">
-            <button id="btn-diary-edit">수정</button>
-            <button id="btn-diary-remove">삭제</button>
+      <div>
+        <div class="calendar">
+          <div class="calendar-today">
+            <span>${month}.${day}</span>
+            <span>${daysOfWeek[date.getDay()]}</span>
+          </div>
+          <div class="calendar-container">
+            ${getDateTemplate(year, month)}
           </div>
         </div>
-        <div class="diary-comment-container">
-          <form class="form-diary-comment">
-            <label>댓글</label>
-            <input type="text" name="diary-comment" />
-            <button type="submit">확인</button>
-          </form>
-          <div class="diary-comment-wrapper" id="comment-${commentId}">
-            <div class="diary-comment-info">
-              <span>
-                <span>no.${commentId} ${commentWriter}</span>
-                <span id="diary-comment-writeAt">${commentWriteAt}<span>
-              </span>
+        <hr />
+        <div class="diary-post">
+          <button id="btn-diary-post" onclick="navigateTo('/diary/post')">🖉글쓰기</button>
+        </div>
+        <div class="diary-container" id="diary-${diaryId}">
+          <div class="diary-info">
+            <span>${year}.${month}.${day}</span>
+            <span>${diaryWriter}</span>
+          </div>
+          <div class="diary-content">
+            <span>${diaryContent}</span>
+            <div class="diary-edit-wrapper">
+              <button id="btn-diary-edit">수정</button>
+              <button id="btn-diary-remove">삭제</button>
             </div>
-            <div class="diary-comment-content">
-              <img src="/resource/images/profile.png" width=100 height=100 />
-              <div id="diary-comment-content">${commentContent}</div>
+          </div>
+          <div class="diary-comment-container">
+            <form class="form-diary-comment">
+              <label>댓글</label>
+              <input type="text" name="diary-comment" />
+              <button type="submit">확인</button>
+            </form>
+            <div class="diary-comment-wrapper" id="comment-${commentId}">
+              <div class="diary-comment-info">
+                <span>
+                  <span>no.${commentId} ${commentWriter}</span>
+                  <span id="diary-comment-writeAt">${commentWriteAt}<span>
+                </span>
+              </div>
+              <div class="diary-comment-content">
+                <img src="/resource/images/profile.png" width=100 height=100 />
+                <div id="diary-comment-content">${commentContent}</div>
+              </div>
+            </div>
+            <div class="diary-comment-wrapper" id="comment-${commentId}">
+              <div class="diary-comment-info">
+                <span>
+                  <span>no.${commentId} ${commentWriter}</span>
+                  <span id="diary-comment-writeAt">${commentWriteAt}<span>
+                </span>
+              </div>
+              <div class="diary-comment-content">
+                <img src="/resource/images/profile.png" width=100 height=100 />
+                <div id="diary-comment-content">${commentContent}</div>
+              </div>
             </div>
           </div>
         </div>

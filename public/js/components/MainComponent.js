@@ -1,7 +1,7 @@
 async function MainComponent(content) {
-  const loadCSS = (href) => {
+  const loadCSS = href => {
     // 모든 CSS 링크를 찾아 제거
-    document.querySelectorAll('link[type="text/css"]').forEach(link => link.remove());
+    document.querySelectorAll("link[type='text/css']").forEach(link => link.remove());
 
     const link = document.createElement("link");
     link.href = href;
@@ -15,26 +15,26 @@ async function MainComponent(content) {
   // 각 경로에 맞는 CSS 파일을 로드
   if (currentPath === "/") {
     loadCSS("/css/HomeComponent.css");
-  } else if (currentPath==="/photo/board"){
-    loadCSS("/css/photoBoard.css")
-  } else if (currentPath==="/photo/post"){
-    loadCSS("/css/photoForm.css")
+  } else if (currentPath === "/photo/board") {
+    loadCSS("/css/photoBoard.css");
+  } else if (currentPath === "/photo/post") {
+    loadCSS("/css/photoForm.css");
+  } else if (currentPath === "/diary/post") {
+    loadCSS("/css/diaryForm.css");
+  } else if (currentPath.startsWith("/diary")) {
+    loadCSS("/css/diaryDate.css");
   }
-  //  else if (currentPath.startsWith("/diary")) {
-  //   loadCSS("/css/Diary.css");
-  // } else if (currentPath === "/visitor") {
-  //   loadCSS("/css/Visitor.css");
+  //  else if (currentPath.startsWith("/photo")) {
+  //   loadCSS("/css/Photo.css");
   // }
+  else if (currentPath === "/visitor") {
+    loadCSS("/css/visitor.css");
+  }
 
   const homeActive = currentPath === "/" ? "active-tab-item" : "tab-item";
-  const diaryActive = currentPath.startsWith("/diary")
-    ? "active-tab-item"
-    : "tab-item";
-  const postActive = currentPath.startsWith("/photo")
-    ? "active-tab-item"
-    : "tab-item";
-  const visitorActive =
-    currentPath === "/visitor" ? "active-tab-item" : "tab-item";
+  const diaryActive = currentPath.startsWith("/diary") ? "active-tab-item" : "tab-item";
+  const postActive = currentPath.startsWith("/photo") ? "active-tab-item" : "tab-item";
+  const visitorActive = currentPath === "/visitor" ? "active-tab-item" : "tab-item";
 
   const mainLayout = `
     <div class="wrapper">

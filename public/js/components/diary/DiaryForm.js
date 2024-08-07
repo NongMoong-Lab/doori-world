@@ -14,13 +14,6 @@ function changeFontColor() {
 }
 
 function DiaryForm() {
-  if (!document.querySelector('link[href="/css/diaryForm.css"]')) {
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = "/css/diaryForm.css";
-    document.head.appendChild(link);
-  }
-
   const component = `
   <div class="diary-form-container">
     <div class="diary-post">
