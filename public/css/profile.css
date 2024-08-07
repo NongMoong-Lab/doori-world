@@ -95,7 +95,7 @@
 }
 
 .history-title {
-  border-bottom: 1px solid gray; 
+  border-bottom: 1px solid gray;
   padding: 2px 2px;
 }
 
@@ -111,6 +111,12 @@
 
 .history a:hover {
   color: #5dbad1;
+}
+
+.history a:link,
+.history a:visited {
+  color: black;
+  text-decoration: none;
 }
 
 .history a > span {
