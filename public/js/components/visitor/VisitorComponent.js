@@ -80,7 +80,7 @@ function VisitorComponent() {
             </button>
           </div>
           <div class="visitor-input-wrapper">
-            <textarea id="input-visitor-say" cols="64"></textarea>
+            <textarea id="input-visitor-say" cols="63"></textarea>
             <p>
               <span>작성자 : ${randomNickname()}</span>
               <button type="submit" id="btn-visitor-send" onclick="postVisitorSay(event)">확인</button>
