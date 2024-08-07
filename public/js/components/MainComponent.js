@@ -1,7 +1,7 @@
 async function MainComponent(content) {
   const loadCSS = href => {
     // 모든 CSS 링크를 찾아 제거
-    document.querySelectorAll('link[type="text/css"]').forEach(link => link.remove());
+    document.querySelectorAll("link[type='text/css']").forEach(link => link.remove());
 
     const link = document.createElement("link");
     link.href = href;
