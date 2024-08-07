@@ -1,9 +1,7 @@
 async function MainComponent(content) {
   const loadCSS = (href) => {
-    if (document.querySelector(`link[href="${href}"]`)) {
-      // 이미 로드된 CSS 파일이면 아무 작업도 하지 않음
-      return;
-    }
+    // 모든 CSS 링크를 찾아 제거
+    document.querySelectorAll('link[type="text/css"]').forEach(link => link.remove());
 
     const link = document.createElement("link");
     link.href = href;
@@ -17,11 +15,13 @@ async function MainComponent(content) {
   // 각 경로에 맞는 CSS 파일을 로드
   if (currentPath === "/") {
     loadCSS("/css/HomeComponent.css");
+  } else if (currentPath==="/photo/board"){
+    loadCSS("/css/photoBoard.css")
+  } else if (currentPath==="/photo/post"){
+    loadCSS("/css/photoForm.css")
   }
   //  else if (currentPath.startsWith("/diary")) {
   //   loadCSS("/css/Diary.css");
-  // } else if (currentPath.startsWith("/photo")) {
-  //   loadCSS("/css/Photo.css");
   // } else if (currentPath === "/visitor") {
   //   loadCSS("/css/Visitor.css");
   // }
@@ -60,7 +60,7 @@ async function MainComponent(content) {
                 <a href="#" data-link id="diary-link">다이어리</a>
               </div>
               <div class="${postActive}">
-                <a href="/photo" data-link>포토</a>
+                <a href="/photo/board" data-link>포토</a>
               </div>
               <div class="${visitorActive}">
                 <a href="/visitor"data-link>방명록</a>

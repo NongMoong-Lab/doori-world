@@ -23,6 +23,18 @@ button {
   font-family: "NeoDunggeunmo", Arial, sans-serif;
 }
 
+input::placeholder {
+  font-family: "NeoDunggeunmo", Arial, sans-serif; 
+}
+
+input[type="file"] {
+  font-family: "NeoDunggeunmo";
+  font-size: 14px;
+  color: #333;
+  padding: 5px;
+  margin-left: 2px;
+}
+
 #app {
   display: flex;
   justify-content: center;
