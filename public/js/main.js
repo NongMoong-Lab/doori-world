@@ -19,60 +19,71 @@ const loadComponent = scriptSrc => {
   });
 };
 
+const loadCSS = href => {
+  // 모든 CSS 링크를 찾아 제거
+  document.querySelectorAll("link[type='text/css']").forEach(link => link.remove());
+
+  const link = document.createElement("link");
+  link.href = href;
+  link.type = "text/css";
+  link.rel = "stylesheet";
+  document.head.appendChild(link);
+};
+
 const routes = [
   {
     path: "/",
     view: async () => {
       await loadComponent("/js/components/HomeComponent.js");
-      await loadComponent("/js/components/MainComponent.js");
-      MainComponent(HomeComponent());
+      loadCSS("/css/HomeComponent.css");
+      return HomeComponent();
     },
   },
   {
     path: "/login",
     view: async () => {
       await loadComponent("/js/components/loginForm.js");
-      loginForm();
+      return loginForm();
     },
   },
   {
     path: "/diary/post",
     view: async () => {
-      await loadComponent("/js/components/MainComponent.js");
       await loadComponent("/js/components/diary/DiaryForm.js");
-      MainComponent(DiaryForm());
+      loadCSS("/css/diaryForm.css");
+      return DiaryForm();
     },
   },
   {
     path: "/diary/:date",
     view: async params => {
-      await loadComponent("/js/components/MainComponent.js");
       await loadComponent("/js/components/diary/DiaryDate.js");
-      MainComponent(DiaryDate(params.date));
+      loadCSS("/css/diaryDate.css");
+      return DiaryDate(params.date);
     },
   },
   {
     path: "/photo/board",
     view: async () => {
-      await loadComponent("/js/components/MainComponent.js");
       await loadComponent("/js/components/photo/photoBoard.js");
-      MainComponent(photoBoard());
+      loadCSS("/css/photoBoard.css");
+      return photoBoard();
     },
   },
   {
     path: "/photo/post",
     view: async () => {
-      await loadComponent("/js/components/MainComponent.js");
       await loadComponent("/js/components/photo/photoForm.js");
-      MainComponent(photoForm());
+      loadCSS("/css/photoForm.css");
+      return photoForm();
     },
   },
   {
     path: "/visitor",
     view: async () => {
-      await loadComponent("/js/components/MainComponent.js");
       await loadComponent("/js/components/visitor/VisitorComponent.js");
-      MainComponent(VisitorComponent());
+      loadCSS("/css/visitor.css");
+      return VisitorComponent();
     },
   },
 ];
@@ -93,9 +104,13 @@ const router = async () => {
   }
 
   const params = getParams(matchRoute);
-  await matchRoute.route.view(params);
+  const view = await matchRoute.route.view(params);
   // const view = await matchRoute.route.view(params);
-  // document.querySelector("#app").innerHTML = view;
+  if (matchRoute.route.path === "/login") {
+    document.querySelector("#app").innerHTML = view;
+  } else {
+    document.querySelector(".white-box").innerHTML = view;
+  }
 };
 
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
