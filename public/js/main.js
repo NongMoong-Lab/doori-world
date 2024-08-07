@@ -19,23 +19,30 @@ const loadComponent = scriptSrc => {
   });
 };
 
-const loadCSS = href => {
-  // 모든 CSS 링크를 찾아 제거
-  document.querySelectorAll("link[type='text/css']").forEach(link => link.remove());
+// const loadCSS = href => {
+//   return new Promise((resolve, reject) => {
+//     // 모든 CSS 링크를 찾아 제거
+//     document.querySelectorAll("link[type='text/css']").forEach(link => link.remove());
 
-  const link = document.createElement("link");
-  link.href = href;
-  link.type = "text/css";
-  link.rel = "stylesheet";
-  document.head.appendChild(link);
-};
+//     const link = document.createElement("link");
+//     link.href = href;
+//     link.type = "text/css";
+//     link.rel = "stylesheet";
+
+//     // CSS 로드가 완료되면 resolve
+//     link.onload = () => resolve();
+//     link.onerror = () => reject(new Error(`Failed to load CSS: ${href}`));
+
+//     document.head.appendChild(link);
+//   });
+// };
 
 const routes = [
   {
     path: "/",
     view: async () => {
       await loadComponent("/js/components/HomeComponent.js");
-      loadCSS("/css/HomeComponent.css");
+      // await loadCSS("/css/HomeComponent.css");
       return HomeComponent();
     },
   },
@@ -50,7 +57,7 @@ const routes = [
     path: "/diary/post",
     view: async () => {
       await loadComponent("/js/components/diary/DiaryForm.js");
-      loadCSS("/css/diaryForm.css");
+      // await loadCSS("/css/diaryForm.css");
       return DiaryForm();
     },
   },
@@ -58,7 +65,7 @@ const routes = [
     path: "/diary/:date",
     view: async params => {
       await loadComponent("/js/components/diary/DiaryDate.js");
-      loadCSS("/css/diaryDate.css");
+      // await loadCSS("/css/diaryDate.css");
       return DiaryDate(params.date);
     },
   },
@@ -66,7 +73,7 @@ const routes = [
     path: "/photo/board",
     view: async () => {
       await loadComponent("/js/components/photo/photoBoard.js");
-      loadCSS("/css/photoBoard.css");
+      // await loadCSS("/css/photoBoard.css");
       return photoBoard();
     },
   },
@@ -74,15 +81,15 @@ const routes = [
     path: "/photo/post",
     view: async () => {
       await loadComponent("/js/components/photo/photoForm.js");
-      loadCSS("/css/photoForm.css");
+      // await loadCSS("/css/photoForm.css");
       return photoForm();
     },
   },
   {
     path: "/visitor",
     view: async () => {
+      // await loadCSS("/css/visitor.css");
       await loadComponent("/js/components/visitor/VisitorComponent.js");
-      loadCSS("/css/visitor.css");
       return VisitorComponent();
     },
   },
@@ -105,12 +112,9 @@ const router = async () => {
 
   const params = getParams(matchRoute);
   const view = await matchRoute.route.view(params);
-  // const view = await matchRoute.route.view(params);
-  if (matchRoute.route.path === "/login") {
-    document.querySelector("#app").innerHTML = view;
-  } else {
-    document.querySelector(".white-box").innerHTML = view;
-  }
+
+  const contentContainer = matchRoute.route.path === "/login" ? document.querySelector("#app") : document.querySelector(".white-box");
+  contentContainer.innerHTML = view;
 };
 
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
