@@ -106,6 +106,7 @@ input[type="file"] {
   display: flex;
   align-items: center;
   margin: 20px 0 10px 20px;
+  height: 5%;
 }
 
 .intro {
@@ -178,3 +179,9 @@ input[type="file"] {
   text-decoration: none;
   display: block;
 }
+
+a:link, a:visited {
+  color: black; 
+  text-decoration: none; 
+}
+
