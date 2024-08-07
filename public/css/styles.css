@@ -106,6 +106,7 @@ input[type="file"] {
   display: flex;
   align-items: center;
   margin: 20px 0 10px 20px;
+  height: 5%;
 }
 
 .intro {
