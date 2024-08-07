@@ -38,9 +38,9 @@ function Profile() {
         </div>
       </div>
       <div class="history-wrapper">
-        <span>🔶 HISTORY</span>
-        <hr />
-        <span class="history">
+        <div class="history-title">🔶 HISTORY</div>
+        <div class="history-content">
+          <span class="history">
           <a href="https://github.com/NongMoong-Lab/doori-world">
             <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="30" height="30">
             <span>Doori World Repository</span>
@@ -54,6 +54,8 @@ function Profile() {
             <span>hyeong1 GitHub</span>
           </a>
         </span>
+        </div>
+        
       </div>
     `;
   return content;

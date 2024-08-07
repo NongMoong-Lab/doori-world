@@ -68,7 +68,7 @@
 }
 
 .music-btn-wrapper {
-  height: 70%;
+  height: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,7 +91,16 @@
 .history-wrapper {
   position: absolute;
   width: 90%;
-  bottom: 3px;
+  margin-bottom: 0.5%;
+}
+
+.history-title {
+  border-bottom: 1px solid gray; 
+  padding: 2px 2px;
+}
+
+.history-content {
+  margin-top: 2%;
 }
 
 .history a {
