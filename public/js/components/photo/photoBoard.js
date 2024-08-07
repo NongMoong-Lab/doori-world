@@ -10,13 +10,15 @@ function photoBoard() {
         no: 1,
         writer: "댓글작성자1",
         content: "댓글내용1",
-        profileImageUrl: "/resource/images/profile.png"
+        profileImageUrl: "/resource/images/profile.png",
+        commentWriteAt: "2024.08.04 22:12"
       },
       {
         no: 2,
         writer: "댓글작성자2",
         content: "댓글내용2",
-        profileImageUrl: "/resource/images/profile.png"
+        profileImageUrl: "/resource/images/profile.png",
+        commentWriteAt: "2024.08.04 22:12"
       }
     ]
   };
@@ -25,7 +27,8 @@ function photoBoard() {
     <div class="photo-comment-wrapper">
       <div class="photo-comment-info">
         <span>no.${comment.no}</span>
-        <span id="photo-comment-writeAt">${comment.writer}</span>
+        <span>${comment.writer}</span>
+        <span id="photo-comment-writeAt">${comment.commentWriteAt}<span>
       </div>
       <div class="photo-comment-content">
         <img src="${comment.profileImageUrl}" width="100" height="100" />
