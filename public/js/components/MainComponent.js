@@ -17,6 +17,8 @@ async function MainComponent(content) {
     loadCSS("/css/HomeComponent.css");
   } else if (currentPath==="/photo/board"){
     loadCSS("/css/photoBoard.css")
+  } else if (currentPath==="/photo/post"){
+    loadCSS("/css/photoForm.css")
   }
   //  else if (currentPath.startsWith("/diary")) {
   //   loadCSS("/css/Diary.css");

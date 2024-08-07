@@ -63,7 +63,8 @@ const routes = [
     path: "/photo/post",
     view: async () => {
       await loadComponent("/js/components/MainComponent.js");
-      MainComponent("<h1>Photo Post</h1>");
+      await loadComponent("/js/components/photo/photoForm.js"); 
+      MainComponent(photoForm());
     },
   },
   {
