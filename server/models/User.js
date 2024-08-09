@@ -6,12 +6,12 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    password: {
+    user_pw: {
       type: String,
       required: true,
       unique: true,
     },
-    avatar: {
+    user_avatar: {
       type: String,
       required: true,
     },

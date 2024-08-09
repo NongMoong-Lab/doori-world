@@ -35,13 +35,33 @@ input[type="file"] {
   margin-left: 2px;
 }
 
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.login-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.login-wrapper > button,
+.login-wrapper > span {
+  background-color: transparent;
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  right: 0;
+}
+
 #app {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 90%;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .wrapper {

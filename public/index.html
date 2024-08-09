@@ -13,17 +13,12 @@
     <link href="/css/visitor.css" type="text/css" rel="stylesheet" />
   </head>
   <body>
-    <!-- <nav>
-      <a href="/" data-link>Home</a>
-      <a href="/login" data-link>Login</a>
-      <a href="#" id="diary-link" data-link>다이어리</a>
-      <a href="/diary/post" data-link>다이어리 작성</a>
-      <a href="/photo" data-link>포토</a>
-      <a href="/photo/post" data-link>포토 작성</a>
-      <a href="/visitor" data-link>방명록</a>
-    </nav> -->
+    <div class="login-wrapper">
+      <button id="btn-login" onclick="{window.location.href='/login'}">로그인</button>
+    </div>
     <div id="app"></div>
     <script src="/js/main.js"></script>
+    <script src="/js/service/auth.js"></script>
     <script src="/js/components/MainComponent.js"></script>
   </body>
 </html>
