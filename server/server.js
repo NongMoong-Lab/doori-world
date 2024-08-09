@@ -1,4 +1,5 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const path = require("path");
 const app = express();
 const authRoutes = require("./routes/authRoutes");
@@ -11,6 +12,7 @@ connectDB();
 // Static files middleware
 app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.json());
+app.use(cookieParser());
 app.use("/auth", authRoutes);
 
 app.get("*", (req, res) => {

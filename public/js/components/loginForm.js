@@ -7,32 +7,24 @@ function handleLogin(event) {
     input_pw: inputPw,
   };
 
-  // api 요청
+  // API 요청
   fetch("/auth/login", {
-    method: "post",
+    method: "POST",
     headers: {
-      "Content-type": "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(inputUser),
   })
-    .then(response => {
-      if (response.status === 200) {
-        const authHeader = response.headers.get("Authorization");
-        if (authHeader) {
-          const newToken = authHeader.split(" ")[1];
-          localStorage.setItem("token", newToken);
-        }
-      }
-      return response.status;
-    })
+    .then(response => response.json())
     .then(data => {
-      if (data === 200) {
-        window.location.assign("/");
+      if (data.accessToken) {
+        localStorage.setItem("accessToken", data.accessToken);
+        window.location.assign("/"); // 로그인 성공 후 리다이렉트
       } else {
-        throw new Error("Login Error");
+        throw new Error(data.error || "Login Error");
       }
     })
-    .catch(error => console.error("Error: ", error));
+    .catch(error => console.error("Error:", error));
 }
 
 function loginForm() {
