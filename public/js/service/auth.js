@@ -71,3 +71,19 @@ function preventLoginAccess(url) {
   return true;
 }
 preventLoginAccess(window.location.pathname);
+
+// 토큰 만료 확인 및 로그아웃 함수
+function checkTokenExpiration() {
+  const token = getToken();
+  if (token) {
+    const decodedToken = decodeJwt(token);
+    const currentTime = Math.floor(Date.now() / 1000);
+
+    if (decodedToken.exp && decodedToken.exp < currentTime) {
+      alert("세션 만료. 다시 로그인해주세요.");
+      handleLogout();
+    }
+  }
+}
+
+setInterval(checkTokenExpiration, 60000); // 1분마다 토큰 만료 여부 확인
