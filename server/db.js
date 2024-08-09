@@ -1,5 +1,6 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
-const mongoURI = "mongodb+srv://nongmong0605:tnfIYc4ZzTZfejVZ@nongmong.t94afgm.mongodb.net/doori_world?retryWrites=true&w=majority&appName=nongmong";
+const mongoURI = process.env.DB_URI;
 
 // MongoDB 연결
 const connectDB = async () => {
