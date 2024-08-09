@@ -16,15 +16,22 @@ function handleLogin(event) {
     body: JSON.stringify(inputUser),
   })
     .then(response => {
-      const authHeader = response.headers.get("Authorization");
-      if (authHeader) {
-        const newToken = authHeader.split(" ")[1];
-        localStorage.setItem("token", newToken);
+      if (response.status === 200) {
+        const authHeader = response.headers.get("Authorization");
+        if (authHeader) {
+          const newToken = authHeader.split(" ")[1];
+          localStorage.setItem("token", newToken);
+        }
       }
-
-      return response.json();
+      return response.status;
     })
-    .then(data => console.log(data))
+    .then(data => {
+      if (data === 200) {
+        window.location.assign("/");
+      } else {
+        throw new Error("Login Error");
+      }
+    })
     .catch(error => console.error("Error: ", error));
 }
 
